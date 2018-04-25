@@ -1,3 +1,17 @@
+/*
+
+This to-do app makes use ECMAScript 2015 and jQuery.
+It should be included after the jQuery script tag.
+
+Example usage:
+
+    $(function() {
+        var display = $('#todo-list');
+        var errors = $('#errors');
+        init(display, errors);
+    });
+
+*/
 
 function getUrl(todoItem) {
   if (todoItem) {
@@ -84,6 +98,11 @@ function displayErrors(errors) {
 }
 
 // REQUESTS
+//
+// Requests parse the data and move the program logic forward.
+// Ideally, there would be better separation, but this is good
+// enough for a demo app.
+//
 
 function getTodoItems() {
   $.ajax({
@@ -140,3 +159,5 @@ function createTodoItem(todoItem) {
     }
   });
 }
+
+// TODO: Handle editing data!
