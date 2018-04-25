@@ -4,7 +4,7 @@ services:
     build:
       context: backend
       dockerfile: Dockerfile.web
-    container_name: web
+    container_name: todolist_web
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - ./backend:/code
@@ -12,7 +12,7 @@ services:
       - "8100:8000"
   frontend:
     image: nginx:1.13.8
-    container_name: nginx
+    container_name: todolist_nginx
     ports:
       - "8080:80"
     volumes:

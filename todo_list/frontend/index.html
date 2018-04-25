@@ -1,50 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="todo.js"></script>
-    <script>
-$(function() {
-  init($('#todo-list'), $('#errors'));
-});
-    </script>
-<style>
-#errors {
-    color: red;
-    font-style: italic;
-    font-size: small;
-}
 
-#todo-list {
-  max-width: 250px;
-}
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="todo.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    $(function () {
+      init($('#todo-list'), $('#errors'));
+    });
+  </script>
 
-#todo-list div {
-  display: flex;
-  flex-direction: column;
-}
+</head>
 
-#todo-list ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+<body>
 
-#todo-list li {
-   display: flex;
-}
-
-#todo-list li button {
-  margin-left: auto;
-}
-
-#todo-list input {
-  margin-top: 5px;
-}
-</style>
-  </head>
-  <body>
+  <div class="container">
+    <h1>To-Do List</h1>
     <div id="todo-list"></div>
     <div id="errors"></div>
-  </body>
+  </div>
+
+</body>
+
 </html>
