@@ -1,0 +1,13 @@
+# savant-web is found in the build/ directory.
+FROM python:3.5.5-jessie
+
+COPY requirements.txt .
+
+RUN python3 -m pip install -r requirements.txt --no-cache-dir
+
+WORKDIR /code/
+
+# We set C_FORCE_ROOT so that celery can run.
+# (It has to be run as root.)
+ENV DJANGO_SETTINGS_MODULE=config.settings \
+    C_FORCE_ROOT="true"
