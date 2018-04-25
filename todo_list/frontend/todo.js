@@ -104,6 +104,11 @@ function displayErrors(errors) {
 // enough for a demo app.
 //
 
+function handleErrors(xhr, textStatus, errorThrown) {
+  var errorsData = JSON.parse(xhr.responseText);
+  displayErrors(errorsData.errors || [ 'Unknown error' ]);
+}
+
 function getTodoItems() {
   $.ajax({
     url : getUrl(),
@@ -116,9 +121,10 @@ function getTodoItems() {
         todoList = new TodoList(items);
         renderTodoItems();
       } else {
-        displayErrors(data.errors || [ 'Unknown error!' ]);
+        displayErrors('Unknown error!');
       }
-    }
+    },
+    error : handleErrors,
   });
 }
 
@@ -131,10 +137,10 @@ function deleteTodoItem(todoItem) {
         todoList.remove(todoItem);
         renderTodoItems();
       } else {
-        //
-        displayErrors(data.errors || [ 'Unknown error!' ]);
+        displayErrors('Unknown error!');
       }
-    }
+    },
+    error : handleErrors,
   });
 }
 
@@ -153,10 +159,7 @@ function createTodoItem(todoItem) {
         displayErrors('Unknown error!');
       }
     },
-    error : function(xhr, textStatus, errorThrown) {
-      var errorsData = JSON.parse(xhr.responseText);
-      displayErrors(errorsData.errors || [ 'Unknown error' ]);
-    }
+    error : handleErrors,
   });
 }
 
