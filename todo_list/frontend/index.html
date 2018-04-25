@@ -8,6 +8,40 @@ $(function() {
   init($('#todo-list'), $('#errors'));
 });
     </script>
+<style>
+#errors {
+    color: red;
+    font-style: italic;
+    font-size: small;
+}
+
+#todo-list {
+  max-width: 250px;
+}
+
+#todo-list div {
+  display: flex;
+  flex-direction: column;
+}
+
+#todo-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#todo-list li {
+   display: flex;
+}
+
+#todo-list li button {
+  margin-left: auto;
+}
+
+#todo-list input {
+  margin-top: 5px;
+}
+</style>
   </head>
   <body>
     <div id="todo-list"></div>
